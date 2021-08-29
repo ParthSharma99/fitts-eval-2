@@ -320,8 +320,8 @@ export default function Home() {
         let limit1 = 0;
         while(!checkInside(next) ){
           next = nextPos(target,radius,pad, canvasWidth, canvasHeight)
-          limit++;
-          if(limit > 50){
+          limit1++;
+          if(limit1 > 50){
             console.log("First point not fixed");
             break;
           }
