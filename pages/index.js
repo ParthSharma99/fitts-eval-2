@@ -114,6 +114,7 @@ function nextPosFromTarget(target,bounds,radius,pad, distanceRadius, mode){
   while(!checkInside(next[0], next[1], radius, pad)){
     t = (t + randInt([1, 360])) % 360;
     next = getPointOnCircumference(t, target, distanceRadius);
+    limiter++;
     if(limiter > 50){
       console.log("Limit reached Point not found");
       return [-1,-1];
