@@ -329,18 +329,19 @@ export default function Home() {
         let next2 = nextPosFromTarget(next,bounds,radius,pad, distanceRadius, mode)
         let limit = 0;
         while(next2[0] == -1){
-          let side = randInt([0,10])
-          if(side > 5){
-            next[1] = randFloat([pad + radius, pad + radius + distanceRadius])
-          }else{
-            next[1] = randFloat([(2*canvasHeight/3) + pad, canvasHeight + pad-radius])
-          }
-          if(next[1] < pad+radius){
-            next[1] = randFloat([pad+radius, pad+radius+distanceRadius])
-          } 
-          limit1 = 0;
+          next = nextPos([randFloat([pad+radius, pad+radius+canvasWidth]), randFloat([pad+radius, pad+radius+canvasHeight])],radius,pad, canvasWidth, canvasHeight)
+          // let side = randInt([0,10])
+          // if(side > 5){
+          //   next[1] = randFloat([pad + radius, pad + radius + distanceRadius])
+          // }else{
+          //   next[1] = randFloat([(2*canvasHeight/3) + pad, canvasHeight + pad-radius])
+          // }
+          // if(next[1] < pad+radius){
+          //   next[1] = randFloat([pad+radius, pad+radius+distanceRadius])
+          // }
+          // limit1 = 0;
           while(!checkInside(next) ){
-            next = nextPos(target,radius,pad, canvasWidth, canvasHeight)
+            next = nextPos([randFloat([pad+radius, pad+radius+canvasWidth]), randFloat([pad+radius, pad+radius+canvasHeight])],radius,pad, canvasWidth, canvasHeight)
             limit1++;
             if(limit1 > 50){
               console.log("First point not fixed");
