@@ -534,11 +534,20 @@ export default function Home() {
             
             let next2 = nextPosFromTarget(next1,bounds,radius,pad, distanceRadius, mode)
             while(next2[0] == -1){
-              let side = randInt([0,10])
-              if(side > 5){
-                next1[1] = randFloat([pad+2*radius+10, distanceRadius])
-              }else{
-                next1[1] = randFloat([window.innerHeight - (pad+2*radius+10) - distanceRadius, window.innerHeight - (pad+2*radius+10)])
+              // let side = randInt([0,10])
+              // if(side > 5){
+              //   next1[1] = randFloat([pad+2*radius+10, distanceRadius])
+              // }else{
+              //   next1[1] = randFloat([window.innerHeight - (pad+2*radius+10) - distanceRadius, window.innerHeight - (pad+2*radius+10)])
+              // }
+              next1 = nextPos(target,radius,pad, canvasWidth, canvasHeight)
+              while(!checkInside(next1) ){
+                next1 = nextPos(target,radius,pad, canvasWidth, canvasHeight)
+                limit1++;
+                if(limit1 > 50){
+                  console.log("First point not fixed");
+                  break;
+                }
               }
               next2 = nextPosFromTarget(next1,bounds,radius,pad, distanceRadius, mode)
             }
