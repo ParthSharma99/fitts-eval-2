@@ -5,8 +5,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-
-
 const CONST = {
   min_dist : 30,
   size1 : 27,
@@ -53,7 +51,6 @@ function convertToCSV(objArray) {
   }
   return str;
 }
-
 
 function Target({target,radius, distanceRadius, name}) {
   return(
@@ -204,6 +201,7 @@ function getPointOnCircumference(t, center, radius){
   let temp_y = radius * Math.sin(t * Math.PI / 180) + center[1];
   return [temp_x, temp_y];
 }
+
 function getAngleFromX(radius, center, x){
   let angle = (180 * Math.acos( ( (x - center[0]) / radius) ))/Math.PI;
   if(angle){
@@ -211,6 +209,7 @@ function getAngleFromX(radius, center, x){
   }
   return [];
 }
+
 function getAngleFromY(radius, center, y){
   let angle = (180 * Math.asin((y - center[1]) / radius))/Math.PI;
   if(angle){
@@ -318,6 +317,15 @@ export default function Home() {
       console.log("Canvas inner height",canvasHeight)
       let next = nextPos(target,radius,pad, canvasWidth, canvasHeight)
       if(mode === "MT"){
+        let limit1 = 0;
+        while(!checkInside(next) ){
+          next = nextPos(target,radius,pad, canvasWidth, canvasHeight)
+          limit++;
+          if(limit > 50){
+            console.log("First point not fixed");
+            break;
+          }
+        }
         let next2 = nextPosFromTarget(next,bounds,radius,pad, distanceRadius, mode)
         let limit = 0;
         while(next2[0] == -1){
