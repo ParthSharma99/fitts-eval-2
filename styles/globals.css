@@ -1,0 +1,169 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+.board {
+  background-color: red;
+  height: 100vh;
+  overflow: hidden;
+
+  background-color: white;
+}
+
+.canvas {
+  display: block;
+  background-color: orange;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 9px;
+  /* padding: 9px; */
+  background-color: white;
+}
+
+.target-box {
+  opacity: 0.5;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 1;
+  display: block;
+}
+
+.target-core {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  border-radius: 50%;
+
+  background-color: black;
+}
+
+.log-box {
+  background-color: #fafafa;
+  overflow-y: scroll;
+  font-size: 8px;
+
+  display: none;
+}
+
+.startBtn {
+  width: 20vw;
+  padding: 20px;
+  text-align: center;
+  z-index: 5;
+  background-color: black;
+  color: white;
+}
+
+.inputBox {
+  z-index: 5;
+  width: 40vw;
+  padding: 10px;
+  font-size: 20px;
+  font-size: small;
+}
+
+.menuItemContainer {
+  position: absolute;
+  left: 30vw;
+  bottom: 20vh;
+  height: 60vh;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.front-page {
+  height: 40vh;
+  bottom: 30vh;
+  width: 45vw;
+}
+.wider {
+  width: 45vw;
+}
+
+.end-buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80vw;
+  position: fixed;
+  bottom: 15vh;
+}
+
+.end-score-wrapper {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  height: 30vh;
+  position: fixed;
+  top: 25vh;
+}
+#target1 {
+  display: block;
+}
+#target2 {
+  display: block;
+}
+#target2 > div {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.score-board {
+  position: fixed;
+  top: 32px;
+  right: 18px;
+}
+.radio-button-wrapper {
+  z-index: 100;
+}
+.MuiFormControlLabel-labelPlacementTop {
+  width: 10px;
+  font-size: 18px;
+}
+.screen-calibration {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.screen-calibration > span {
+  position: fixed;
+  bottom: 72px;
+  width: 70%;
+}
+
+.center-box {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+#canvasText {
+  position: fixed;
+  left: 40%;
+  top: 45%;
+}
