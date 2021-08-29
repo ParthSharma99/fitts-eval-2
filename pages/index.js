@@ -231,9 +231,6 @@ function tooClose(center, point, radius){
 }
 
 function checkInside(x,y, radius, pad){
-  console.log("Inside Check : ");
-  console.log("X Check for " + x + " : ", (x < radius + pad || x > window.innerWidth - radius - pad));
-  console.log("Y Check for "+ y + " : ", (y < radius + pad || y > window.innerHeight - radius - pad));
   if(x < radius + pad || x > window.innerWidth - radius - pad) return false;
   if(y < radius + pad || y > window.innerHeight - radius - pad) return false;
   return true;
