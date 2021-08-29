@@ -194,6 +194,7 @@ function nextPosFromTarget(target,bounds,radius,pad, distanceRadius, mode){
   // }
   if(!checkInside(next[0], next[1], radius, pad)) return [-1, -1];
   console.log("Target Value 2 : ", next)
+  console.log("Check Target Value 2  : ", checkInside(next[0], next[1], radius, pad))
   return next
 }
 
