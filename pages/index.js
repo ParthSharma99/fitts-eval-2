@@ -233,8 +233,8 @@ function checkInside(x,y, radius, pad){
   if(x < radius + pad || x > window.innerWidth - radius - pad) return false;
   if(y < radius + pad || y > window.innerHeight - radius - pad) return false;
   return true;
-  if(x + radius + pad + 30 < window.innerWidth && x - radius - pad - 30> 0){
-    if(y + radius + pad + 30 < window.innerHeight && y - radius - pad - 30> 0){
+  if(x + radius + pad < window.innerWidth && x - radius - pad > 0){
+    if(y + radius + pad < window.innerHeight && y - radius - pad > 0){
       return true;
     }
   }  
@@ -338,6 +338,15 @@ export default function Home() {
           if(next[1] < pad+radius){
             next[1] = randFloat([pad+radius, pad+radius+distanceRadius])
           } 
+          limit1 = 0;
+          while(!checkInside(next) ){
+            next = nextPos(target,radius,pad, canvasWidth, canvasHeight)
+            limit1++;
+            if(limit1 > 50){
+              console.log("First point not fixed");
+              break;
+            }
+          }
           next2 = nextPosFromTarget(next,bounds,radius,pad, distanceRadius, mode)
           limit++;
           if(limit > 50){
