@@ -109,7 +109,7 @@ function nextPosFromTarget(target,bounds,radius,pad, distanceRadius, mode){
   let t = randInt([0, 360])
   next = getPointOnCircumference(t, target, distanceRadius);
   while(!checkInside(next[0], next[1], radius, pad)){
-    t = (t + randInt([1, 360])) % 360;
+    t = (t + 10) % 360;
     next = getPointOnCircumference(t, target, distanceRadius);
     limiter++;
     if(limiter > 50){
